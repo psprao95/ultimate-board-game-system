@@ -1,0 +1,9 @@
+language: java
+jdk: oraclejdk8
+dist: trusty
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - mvn test -B
+env:
+  global:
+    - CODECOV_TOKEN=c66b2ce4-47e4-4365-9ae4-e474d84f180e
