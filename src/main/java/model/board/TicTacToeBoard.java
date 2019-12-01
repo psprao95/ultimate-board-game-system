@@ -15,7 +15,7 @@ public class TicTacToeBoard extends ABoardModel
 	public IUndoMove makeMove(int r, int c, int plyr, ICheckMoveVisitor cm, IBoardStatusVisitor bs) {
 		if(isValidMove(plyr, r, c)) {
 			cm.validMoveCase();
-			cells[r][c] = plyr;
+			cells[r][c] = playerToValue(plyr);
 			if(wonGame(plyr)) {
 				if(plyr == 0) {
 					bs.player0WonCase(this, null);
@@ -43,8 +43,8 @@ public class TicTacToeBoard extends ABoardModel
 
 	}
 
-	private boolean wonGame(int player) {
-		//int player = this.playerToValue(plyr);
+	private boolean wonGame(int plyr) {
+		int player = this.playerToValue(plyr);
 		for(int i = 0; i < cells.length; i++) {
 			for(int j = 0; j < cells[i].length; j++) {
 				if(cells[i][j] == player) {

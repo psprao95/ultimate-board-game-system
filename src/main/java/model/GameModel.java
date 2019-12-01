@@ -158,8 +158,8 @@ public final class GameModel implements IModelCombo {
 	 */
 	public void setPlayers(Object player1, Object player2) {
 		// Last in/first play
-		turnControl = new TurnControl(((IMakePlayer) player2).create(2));
-		turnControl.addPlayer(((IMakePlayer) player1).create(1));
+		turnControl = new TurnControl(((IMakePlayer) player2).create(1));
+		turnControl.addPlayer(((IMakePlayer) player1).create(0));
 		turnControl.run();
 	}
 
