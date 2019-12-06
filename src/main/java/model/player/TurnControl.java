@@ -4,15 +4,15 @@ package main.java.model.player;
 //      APlayer
 
 public class TurnControl{
-	
+
 	APlayer players;
 	boolean skipPlayer;
 	private ANextTurn proceedTurn;
 	private ANextTurn waitTurn;
 	private ANextTurn haltTurn;
 	private volatile ANextTurn nextTurn;
-	
-	
+
+
 	private abstract class ANextTurn{
 
 		abstract boolean apply();
@@ -73,9 +73,10 @@ public class TurnControl{
 	{
 		players.insertAsRest(aplayer);
 		APlayer aplayer1 = players;
-		int i = 1;
-		do
-			System.out.print("player " + i + " = " + aplayer1 + " ");
+		
+		do {
+			System.out.print("player " + players.getPlayer() + " = " + aplayer1 + " ");
+		}
 		while (players != (aplayer1 = aplayer1.getNextPlayer()));
 	}
 

@@ -72,7 +72,7 @@ public class TicTacToe {
 			
 		    public void setTokenAt(int row, int col, int player) {
 		        
-		        System.out.println("setting player " + player + "  token at ("+ row + "," + col+")");
+		        System.out.println("setting player " + player + "  token at ("+ (row+1) + "," + (col+1)+")");
 		    }
 
 		    @Override
