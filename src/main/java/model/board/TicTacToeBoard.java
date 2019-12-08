@@ -19,23 +19,29 @@ public class TicTacToeBoard extends ABoardModel
 			if(wonGame(plyr)) {
 				if(plyr == 0) {
 					bs.player0WonCase(this, null);
+					display();
 				}
 				else {
 					bs.player1WonCase(this, null);
+					display();
 				}
 			}
 			else if(tiedGame()) {
 				bs.drawCase(this, null);
+				display();
 			}
 			else {
 				bs.noWinnerCase(this, null);
+				display();
+        
 			}
 		}
 		else {
 			cm.invalidMoveCase();
-			bs.noWinnerCase(this, null);
+			
 		}
-		display();
+		
+		
 
 
 
@@ -87,8 +93,8 @@ public class TicTacToeBoard extends ABoardModel
 	public boolean isValidMove(int player, int row, int col) {
 		return row >= 0 && col >= 0 && row < cells.length && col < cells[row].length && this.cells[row][col] == 0;
 	}
-	
-	
+
+
 	public void display()
 	{
 		System.out.println("Board:");
@@ -103,6 +109,6 @@ public class TicTacToeBoard extends ABoardModel
 		}
 		System.out.println("_________");
 	}
-	
+
 
 }

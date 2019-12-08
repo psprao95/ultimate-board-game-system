@@ -78,7 +78,7 @@ public class TicTacToe {
 		    @Override
 		    public void clearTokenAt(int row, int col) {
 		       
-		        System.out.println("token at " + row + " " + col +" was cleared");
+		        System.out.println("token at (" + (row+1) + "," + (col+1) +") was cleared");
 		    }
 
 		    @Override

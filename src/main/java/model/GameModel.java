@@ -107,7 +107,7 @@ public final class GameModel implements IModelCombo {
 				public Object player1WonCase(IBoardModel host, Object param) {
 					viewManager.win(1);
 					viewManager.reset();
-					boardModel.reset();
+					reset();
 					return null;
 				}
 
@@ -115,7 +115,7 @@ public final class GameModel implements IModelCombo {
 				public Object player0WonCase(IBoardModel host, Object param) {
 					viewManager.win(0);
 					viewManager.reset();
-					boardModel.reset();
+					reset();
 					return null;
 				}
 
@@ -128,7 +128,7 @@ public final class GameModel implements IModelCombo {
 				public Object drawCase(IBoardModel host, Object param) {
 					viewManager.draw();
 					viewManager.reset();
-					boardModel.reset();
+					reset();
 					return null;
 				}
 			});
@@ -146,9 +146,9 @@ public final class GameModel implements IModelCombo {
 		System.out.println("Resetting");
 		boardModel.reset();
 		boardModel.redrawAll(iCommand);
-		if(turnControl != null) {
+		/*if(turnControl != null) {
 			turnControl.setHalt();
-		}
+		}*/
 	}
 
 	/**
@@ -156,10 +156,10 @@ public final class GameModel implements IModelCombo {
 	 * @param player0 an IMakePlayer factory
 	 * @param player1 an IMakePlayer factory
 	 */
-	public void setPlayers(Object player1, Object player2) {
+	public void setPlayers(Object player0, Object player1) {
 		// Last in/first play
-		turnControl = new TurnControl(((IMakePlayer) player2).create(1));
-		turnControl.addPlayer(((IMakePlayer) player1).create(0));
+		turnControl = new TurnControl(((IMakePlayer) player1).create(1));
+		turnControl.addPlayer(((IMakePlayer) player0).create(0));
 		turnControl.run();
 	}
 
